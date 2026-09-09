@@ -3,359 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little Universe ♡</title>
+
+<title>Birthday Surprise ♡</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600&display=swap');
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: 'Prompt', sans-serif;
-  background: linear-gradient(135deg, #ffdff1, #dff3ff);
-  color: #4b4660;
-  min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #ffdce9, #dcecff);
+  color: #4d4650;
 }
 
 .page {
   display: none;
   min-height: 100vh;
-  padding: 28px 20px;
-  animation: fade 0.5s ease;
+  padding: 30px 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .page.active {
   display: flex;
 }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+h1, h2, p {
+  margin-top: 0;
 }
 
 /* PASSWORD */
 
-#login {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .login-box {
   width: 100%;
-  max-width: 390px;
-  background: rgba(255,255,255,0.75);
-  padding: 42px 25px;
+  max-width: 380px;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  padding: 35px 25px;
   border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(120,100,150,0.15);
+  box-shadow: 0 15px 40px rgba(100,80,120,0.15);
 }
 
 .heart {
   font-size: 55px;
-  margin-bottom: 12px;
-}
-
-h1, h2 {
-  font-family: 'Itim', cursive;
+  margin-bottom: 10px;
 }
 
 .login-box h1 {
-  font-size: 36px;
-  margin-bottom: 8px;
+  font-size: 30px;
+  color: #e982a9;
 }
 
 .login-box p {
-  font-size: 14px;
-  margin-bottom: 25px;
-  opacity: .7;
+  color: #777;
 }
 
 input {
   width: 100%;
-  border: none;
-  background: white;
   padding: 15px;
-  border-radius: 16px;
-  text-align: center;
+  border: 2px solid #f1bfd2;
+  border-radius: 15px;
   font-size: 18px;
+  text-align: center;
   outline: none;
-  margin-bottom: 12px;
+  margin: 15px 0;
 }
 
 button {
   border: none;
+  border-radius: 20px;
+  padding: 14px 25px;
+  font-size: 16px;
   cursor: pointer;
-  font-family: 'Prompt', sans-serif;
+  background: #f39abb;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 0.9;
 }
 
 /* HOME */
 
-#home {
-  align-items: center;
-  justify-content: center;
-}
-
-.home-box {
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
-
 .home-title {
-  font-family: 'Itim', cursive;
-  font-size: 45px;
-  margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.home-sub {
-  font-size: 14px;
-  opacity: .65;
-  margin-bottom: 35px;
+.home-title h1 {
+  font-size: 32px;
+  color: #df789f;
 }
 
 .cards {
+  width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .card {
-  background: rgba(255,255,255,.78);
-  border-radius: 28px;
-  padding: 30px 22px;
-  box-shadow: 0 12px 35px rgba(100,90,140,.12);
-  transition: .2s;
+  background: rgba(255,255,255,0.9);
+  padding: 35px 25px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(100,80,120,0.12);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .card:active {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
 
 .card .emoji {
-  font-size: 45px;
+  font-size: 50px;
 }
 
 .card h2 {
-  font-size: 30px;
-  margin: 5px 0;
+  margin: 10px 0 5px;
+  color: #df789f;
 }
 
 .card p {
-  font-size: 13px;
-  opacity: .65;
+  color: #888;
 }
 
-/* GENERAL */
-
-.content {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
-}
-
-.back {
-  align-self: flex-start;
-  background: rgba(255,255,255,.7);
-  padding: 9px 15px;
-  border-radius: 20px;
-  color: #655f78;
-  margin-bottom: 25px;
-}
-
-.section-title {
-  font-size: 40px;
-  margin-bottom: 8px;
-}
-
-.small-text {
-  font-size: 13px;
-  opacity: .65;
-  margin-bottom: 25px;
-}
-
-/* LETTER */
+/* BIRTHDAY */
 
 .letter {
-  background: #fffdf8;
-  border-radius: 10px;
-  padding: 35px 25px;
-  box-shadow: 0 12px 35px rgba(90,80,110,.15);
-  position: relative;
-  margin-top: 20px;
-}
-
-.letter:before {
-  content: "♡";
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 20px;
-  color: #f3a8ca;
-}
-
-.photo {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  object-fit: cover;
-  margin: 20px 0;
-  background: linear-gradient(135deg,#ffd6ea,#d7efff);
-}
-
-.photo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #8b8498;
-  font-size: 14px;
-}
-
-.letter h2 {
-  font-size: 28px;
-  line-height: 1.3;
-}
-
-.next-btn {
-  margin-top: 25px;
-  background: linear-gradient(90deg,#f6a8cf,#a8dfff);
-  color: white;
-  padding: 13px 25px;
+  max-width: 500px;
+  background: #fffafc;
   border-radius: 25px;
-  font-size: 15px;
-  box-shadow: 0 8px 20px rgba(180,140,200,.2);
-}
-
-/* WISH */
-
-.wish-card {
-  background: rgba(255,255,255,.8);
-  padding: 35px 25px;
-  border-radius: 25px;
-  line-height: 2;
-  font-size: 16px;
-  box-shadow: 0 12px 35px rgba(100,90,140,.12);
-  text-align: left;
-}
-
-.wish-card .dear {
-  font-family: 'Itim', cursive;
-  font-size: 27px;
+  padding: 25px;
+  box-shadow: 0 12px 35px rgba(100,80,120,0.15);
   text-align: center;
+}
+
+.letter img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 18px;
   margin-bottom: 20px;
 }
 
+.letter h2 {
+  color: #df789f;
+  line-height: 1.5;
+}
+
+.wish {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 25px;
+  padding: 30px 25px;
+  line-height: 2;
+  font-size: 17px;
+  box-shadow: 0 10px 30px rgba(100,80,120,0.12);
+}
+
 .cake {
-  font-size: 70px;
-  margin: 25px 0;
+  text-align: center;
 }
 
-/* ANNIVERSARY */
-
-#anniv {
-  display: none;
-  padding: 25px 0 35px;
+.cake .big {
+  font-size: 100px;
 }
 
-#anniv.active {
-  display: block;
+.cake h1 {
+  color: #df789f;
 }
 
-.anniv-header {
+/* GALLERY */
+
+.museum {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px 0 40px;
+}
+
+.museum-title {
   text-align: center;
   padding: 10px 20px 25px;
 }
 
-.anniv-header h1 {
-  font-size: 42px;
+.museum-title h1 {
+  color: #df789f;
 }
 
-.anniv-header p {
-  font-size: 13px;
-  opacity: .65;
+.museum-title p {
+  color: #777;
 }
 
-.museum {
+.gallery {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 15px 20px 30px;
+  padding: 10px 20px 30px;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
-.museum::-webkit-scrollbar {
+.gallery::-webkit-scrollbar {
   display: none;
 }
 
-.frame {
+.photo-card {
   flex: 0 0 82vw;
   max-width: 380px;
-  background: #fffdf8;
-  padding: 13px 13px 20px;
-  border-radius: 7px;
-  box-shadow: 0 10px 25px rgba(80,70,100,.16);
+  background: #fff;
+  padding: 12px 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(80,70,90,0.15);
   scroll-snap-align: center;
   transform: rotate(-1deg);
 }
 
-.frame:nth-child(even) {
-  transform: rotate(1deg);
+.photo-card:nth-child(even) {
+  transform: rotate(1.2deg);
 }
 
-.frame img {
+.photo-card img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  background: linear-gradient(135deg,#ffd6ea,#d7efff);
   display: block;
+  background: #eee;
 }
 
 .caption {
-  margin-top: 13px;
-  font-family: 'Itim', cursive;
-  font-size: 20px;
-  line-height: 1.4;
+  padding: 15px 8px 3px;
   text-align: center;
-  min-height: 30px;
-  outline: none;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 55px;
 }
 
-.number {
-  font-size: 11px;
-  opacity: .4;
-  text-align: center;
-  margin-top: 7px;
+.back {
+  margin-top: 15px;
+  background: #8eb9e8;
 }
 
-.end-message {
-  text-align: center;
-  padding: 20px;
-  font-family: 'Itim', cursive;
-  font-size: 28px;
-}
+/* MOBILE */
 
-/* DESKTOP */
-
-@media (min-width: 700px) {
-  .page {
-    padding: 50px 30px;
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
   }
 
-  .cards {
-    flex-direction: row;
-  }
-
-  .card {
-    flex: 1;
-  }
-
-  .frame {
-    flex-basis: 350px;
+  .photo-card {
+    flex-basis: 82vw;
   }
 }
 </style>
@@ -363,19 +267,17 @@ button {
 
 <body>
 
-<!-- =========================
-     PASSWORD PAGE
-========================= -->
+<!-- PASSWORD -->
 
 <section id="login" class="page active">
 
   <div class="login-box">
 
-    <div class="heart">💗</div>
+    <div class="heart">💌</div>
 
-    <h1>Our Little Universe</h1>
+    <h1>มีอะไรให้เธอเปิด ♡</h1>
 
-    <p>มีบางอย่างอยากให้เธอค้นพบ...</p>
+    <p>ใส่รหัสผ่านก่อนนะ</p>
 
     <input
       id="password"
@@ -384,12 +286,10 @@ button {
       placeholder="ใส่รหัสผ่าน"
     >
 
-    <button class="next-btn" onclick="unlock()">
-      เปิดประตู ♡
-    </button>
+    <button onclick="unlock()">เปิดประตู ♡</button>
 
-    <p id="error" style="color:#e88aaa; margin-top:12px; display:none;">
-      รหัสไม่ถูกน้า ลองใหม่อีกครั้ง ♡
+    <p id="error" style="color:#e982a9; display:none;">
+      รหัสไม่ถูกต้องนะ 🥺
     </p>
 
   </div>
@@ -397,35 +297,40 @@ button {
 </section>
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <section id="home" class="page">
 
-  <div class="home-box">
+  <div class="home-title">
 
-    <div class="home-title">
-      For You ♡
+    <div style="font-size:55px;">🎀</div>
+
+    <h1>สำหรับคนพิเศษของเค้า</h1>
+
+    <p>เลือกเปิดทีละอันนะ ♡</p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="go('birthday')">
+
+      <div class="emoji">🎂</div>
+
+      <h2>Happy Birthday</h2>
+
+      <p>24 ปีแล้วนะคนเก่ง</p>
+
     </div>
 
-    <div class="home-sub">
-      เลือกสิ่งที่อยากเปิดดูนะ
-    </div>
 
-    <div class="cards">
+    <div class="card" onclick="go('anniv')">
 
-      <div class="card" onclick="go('birthday')">
-        <div class="emoji">🎂</div>
-        <h2>Happy Birthday</h2>
-        <p>ของขวัญสำหรับอายุ 24 ปี</p>
-      </div>
+      <div class="emoji">💗</div>
 
-      <div class="card" onclick="go('anniv')">
-        <div class="emoji">💌</div>
-        <h2>Happy Anniversary</h2>
-        <p>พิพิธภัณฑ์เรื่องราวของเรา</p>
-      </div>
+      <h2>Happy Anniversary</h2>
+
+      <p>1 year with you</p>
 
     </div>
 
@@ -434,84 +339,75 @@ button {
 </section>
 
 
-<!-- =========================
-     BIRTHDAY PAGE
-========================= -->
+<!-- BIRTHDAY PHOTO -->
 
 <section id="birthday" class="page">
 
-  <div class="content">
+  <div class="letter">
 
-    <button class="back" onclick="go('home')">
-      ← กลับ
+    <img src="birthday.jpeg" alt="Birthday">
+
+    <h2>
+      ยินดีต้อนรับอายุ 24 ปีนะคะ<br>
+      คนเก่งของเค้า ♡
+    </h2>
+
+    <button onclick="go('wish')">
+      เปิดจดหมายต่อ 💌
     </button>
 
-    <h1 class="section-title">
-      Happy Birthday 🎂
-    </h1>
-
-    <p class="small-text">
-      วันนี้เป็นวันพิเศษของคนเก่งของเค้า
-    </p>
-
-    <div class="letter">
-
-      <!-- เปลี่ยนรูปตรงนี้เป็น images/birthday.jpg -->
-      <div class="photo photo-placeholder">
-        📷 ใส่รูปของเราไว้ตรงนี้
-      </div>
-
-      <h2>
-        ยินดีต้อนรับอายุ 24 ปีนะคะคนเก่งของเค้า ♡
-      </h2>
-
-      <button class="next-btn" onclick="go('wish')">
-        เปิดจดหมาย 💌
-      </button>
-
-    </div>
-
   </div>
+
+  <button class="back" onclick="go('home')">
+    ← กลับ
+  </button>
 
 </section>
 
 
-<!-- =========================
-     WISH PAGE
-========================= -->
+<!-- WISH -->
 
 <section id="wish" class="page">
 
-  <div class="content">
+  <div class="wish">
 
-    <button class="back" onclick="go('birthday')">
-      ← กลับ
-    </button>
+    <h2 style="text-align:center;color:#df789f;">
+      ถึงคนเก่งของเค้า 💗
+    </h2>
 
-    <div class="wish-card">
-
-      <div class="dear">
-        ถึงคนเก่งของเค้า ♡
-      </div>
-
-      โตขึ้นอีกปีแล้ว เค้าขอให้เป็นปีที่มีแต่สิ่งดีๆเขามาในชีวิตเธอ
-      ขอให้ทุกๆก้าวเดินนั้นสดใสมากๆ
-      ขอให้ใจของเธอพองโต
-      ขอให้กายของเธอแข็งแรง
-      เดินไปด้วยกันนะ
-      ช่วงเวลาของเธอที่เติบโตขึ้น
+    <p>
+      โตขึ้นอีกปีแล้ว เค้าขอให้เป็นปีที่มีแต่สิ่งดีๆ
+      เข้ามาในชีวิตเธอ ขอให้ทุกๆก้าวเดินนั้นสดใสมากๆ
+      ขอให้ใจของเธอพองโต ขอให้กายของเธอแข็งแรง
+      เดินไปด้วยกันนะ ช่วงเวลาของเธอที่เติบโตขึ้น
       เค้าอยู่เคียงข้างเติบโตไปพร้อมกันนะ
+    </p>
 
-      <br><br>
-
-      <div style="text-align:center;">
-        รักนะ ♡
-      </div>
-
+    <div style="text-align:center;">
+      <button onclick="go('cake')">
+        ต่อไป ♡
+      </button>
     </div>
 
-    <button class="next-btn" onclick="go('cake')">
-      ต่อไป ♡
+  </div>
+
+</section>
+
+
+<!-- CAKE -->
+
+<section id="cake" class="page">
+
+  <div class="cake">
+
+    <div class="big">🎂</div>
+
+    <h1>ขอบคุณที่เกิดมานะ 🎂</h1>
+
+    <p>และขอบคุณที่เข้ามาเป็นความสุขของเค้านะ ♡</p>
+
+    <button onclick="go('home')">
+      กลับไปหน้าหลัก
     </button>
 
   </div>
@@ -519,360 +415,208 @@ button {
 </section>
 
 
-<!-- =========================
-     CAKE PAGE
-========================= -->
+<!-- ANNIVERSARY -->
 
-<section id="cake" class="page">
+<section id="anniv" class="page">
 
-  <div class="content">
+  <div class="museum">
 
-    <button class="back" onclick="go('wish')">
-      ← กลับ
-    </button>
+    <div class="museum-title">
 
-    <div class="letter">
+      <div style="font-size:50px;">💗</div>
 
-      <div class="cake">🎂</div>
+      <h1>Our Little Museum</h1>
 
-      <h1 class="section-title">
-        ขอบคุณที่เกิดมานะ 🎂
-      </h1>
+      <p>365 วันที่มีเธออยู่ด้วยกัน ♡</p>
 
-      <p class="small-text">
-        และขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตเค้านะ ♡
+      <p style="font-size:13px;">
+        ← ปัดดูรูปของเราไปเรื่อยๆ →
       </p>
 
-      <button class="next-btn" onclick="go('home')">
-        กลับหน้าหลัก
+    </div>
+
+
+    <div class="gallery">
+
+      <div class="photo-card">
+        <img src="01.jpeg">
+        <div class="caption" contenteditable="true">
+          กันยายน 01 — สุขสันต์วันเกิดเธอปีแรก & เธอขอเค้าเป็นแฟน ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="02.jpeg">
+        <div class="caption" contenteditable="true">
+          กันยายน 02 — เธอพาเค้าไปเที่ยวคาเฟ่น้องหมา ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="03.jpeg">
+        <div class="caption" contenteditable="true">
+          ตุลาคม 03 — ทุกๆครั้งที่เค้าไปหาตอนเช้าต้องทำงานเธอก็จะจับมือแบบนี้เดินมาส่ง ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="04.jpeg">
+        <div class="caption" contenteditable="true">
+          ตุลาคม 04 — ไปกินข้าวและดูหนังด้วยกัน ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="05.jpeg">
+        <div class="caption" contenteditable="true">
+          พฤศจิกายน 05 — เธอพาเค้าไปเดท วาดรูปด้วยกัน ใช้เวลาร่วมกัน ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="06.jpeg">
+        <div class="caption" contenteditable="true">
+          พฤศจิกายน 06 — ทุกๆครั้งที่เบ้บมาหาเค้าดีใจมากเลยนะ ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="07.jpeg">
+        <div class="caption" contenteditable="true">
+          ธันวาคม 07 — คนเก่งของเค้ารับปริญญาแล้ว ภูมิใจจัง ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="08.jpeg">
+        <div class="caption" contenteditable="true">
+          ธันวาคม 08 — กินซูชิโระ เดินเล่น xmas ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="09.jpeg">
+        <div class="caption" contenteditable="true">
+          มกราคม 09 — เธอชอบพาไปนั่งโนแต้ง กินเบียร์ชิวๆ  ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="10.jpeg">
+        <div class="caption" contenteditable="true">
+          มกราคม 10 — นานๆเธอจะไปสยาม ภาพที่เห็นได้บ่อย เธอรอเค้าลองชุด ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="11.jpeg">
+        <div class="caption" contenteditable="true">
+          กุมภาพันธ์ 11 — ไปบ้านเธอที่ตากครั้งแรก ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="12.jpeg">
+        <div class="caption" contenteditable="true">
+          กุมภาพันธ์ 12 — วาเลนไทน์แรกของเรา ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="13.jpeg">
+        <div class="caption" contenteditable="true">
+          มีนาคม 13 — วิดวะกาเด้น เก4 มีมาย  ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="14.jpeg">
+        <div class="caption" contenteditable="true">
+          มีนาคม 14 — ขอบคุณนะที่พาไปวิ่ง ซัพพอร์ตเค้าตลอด ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="15.jpeg">
+        <div class="caption" contenteditable="true">
+          พฤษภาคม 15 — เธอพาไปเที่ยวคาเฟ่อีกแล้ว ตั้งใจถ่ายรูปให้เค้า ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="16.jpeg">
+        <div class="caption" contenteditable="true">
+          พฤษภาคม 16 — เล่นสงกรานต์ด้วยกัน สนุกมาก ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="17.jpeg">
+        <div class="caption" contenteditable="true">
+          มิถุนายน 17 — ทะเลแสงอรุณ เธอไปบ้านเค้าครั้งแรก ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="18.jpeg">
+        <div class="caption" contenteditable="true">
+          มิถุนายน 18 — เสื้อคู่ ม่อนชิชิ ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="19.jpeg">
+        <div class="caption" contenteditable="true">
+          กรกฎาคม 19 — เธอเซอไพร้วันเกิดเค้า ขอบคุณนะคะ ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="20.jpeg">
+        <div class="caption" contenteditable="true">
+          กรกฎาคม 20 — สวนสนุกครั้งแรกของเค้า ดีใจจังที่เธอพาไป ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="21.jpeg">
+        <div class="caption" contenteditable="true">
+          สิงหาคม 21 — เช็คอินเขาใหญ่ ตามใจเค้าที่สุด ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="22.jpeg">
+        <div class="caption" contenteditable="true">
+          สิงหาคม 22 — เธอพาไปคอนน้องเตนล์ ปะป๊ามือใหม่ ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="23.jpeg">
+        <div class="caption" contenteditable="true">
+          กันยายน 23 — เข้าวัดทำบุญ  ♡
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="24.jpeg">
+        <div class="caption" contenteditable="true">
+          กันยายน 24 — เค้าเฝ้าเธอทำงาน เตรียมสอบ ♡
+        </div>
+      </div>
+
+    </div>
+
+
+    <div style="text-align:center;">
+
+      <button class="back" onclick="go('home')">
+        ← กลับหน้าหลัก
       </button>
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- =========================
-     ANNIVERSARY MUSEUM
-========================= -->
-
-<section id="anniv" class="page">
-
-  <div class="anniv-header">
-
-    <button class="back" onclick="go('home')">
-      ← กลับ
-    </button>
-
-    <h1>
-      Happy Anniversary ♡
-    </h1>
-
-    <p>
-      1 year of us · our little museum
-    </p>
-
-  </div>
-
-
-  <div class="museum">
-
-
-    <!-- รูปที่ 01 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 01
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 01 ♡
-      </div>
-      <div class="number">01 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 02 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 02
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 02 ♡
-      </div>
-      <div class="number">02 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 03 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 03
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 03 ♡
-      </div>
-      <div class="number">03 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 04 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 04
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 04 ♡
-      </div>
-      <div class="number">04 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 05 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 05
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 05 ♡
-      </div>
-      <div class="number">05 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 06 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 06
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 06 ♡
-      </div>
-      <div class="number">06 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 07 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 07
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 07 ♡
-      </div>
-      <div class="number">07 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 08 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 08
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 08 ♡
-      </div>
-      <div class="number">08 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 09 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 09
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 09 ♡
-      </div>
-      <div class="number">09 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 10 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 10
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 10 ♡
-      </div>
-      <div class="number">10 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 11 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 11
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 11 ♡
-      </div>
-      <div class="number">11 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 12 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 12
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 12 ♡
-      </div>
-      <div class="number">12 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 13 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 13
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 13 ♡
-      </div>
-      <div class="number">13 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 14 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 14
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 14 ♡
-      </div>
-      <div class="number">14 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 15 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 15
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 15 ♡
-      </div>
-      <div class="number">15 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 16 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 16
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 16 ♡
-      </div>
-      <div class="number">16 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 17 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 17
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 17 ♡
-      </div>
-      <div class="number">17 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 18 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 18
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 18 ♡
-      </div>
-      <div class="number">18 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 19 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 19
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 19 ♡
-      </div>
-      <div class="number">19 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 20 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 20
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 20 ♡
-      </div>
-      <div class="number">20 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 21 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 21
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 21 ♡
-      </div>
-      <div class="number">21 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 22 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 22
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 22 ♡
-      </div>
-      <div class="number">22 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 23 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 23
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 23 ♡
-      </div>
-      <div class="number">23 / 24</div>
-    </div>
-
-
-    <!-- รูปที่ 24 -->
-    <div class="frame">
-      <div class="photo photo-placeholder">
-        📷 รูปที่ 24
-      </div>
-      <div class="caption" contenteditable="true">
-        เรื่องราวของเรารูปที่ 24 ♡
-      </div>
-      <div class="number">24 / 24</div>
-    </div>
-
-  </div>
-
-
-  <div class="end-message">
-    1 year with you ♡<br>
-    and many more to go.
   </div>
 
 </section>
@@ -880,38 +624,41 @@ button {
 
 <script>
 
-function unlock() {
-
-  const password = document.getElementById("password").value;
-  const error = document.getElementById("error");
-
-  if (password === "1009") {
-
-    document.getElementById("login").classList.remove("active");
-    document.getElementById("home").classList.add("active");
-
-  } else {
-
-    error.style.display = "block";
-
-  }
-}
-
-
 function go(pageId) {
 
-  document.querySelectorAll(".page").forEach(page => {
+  document.querySelectorAll(".page").forEach(function(page) {
     page.classList.remove("active");
   });
 
   document.getElementById(pageId).classList.add("active");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo(0, 0);
+}
+
+
+function unlock() {
+
+  const password = document.getElementById("password").value;
+
+  if (password === "1009") {
+
+    go("home");
+
+  } else {
+
+    document.getElementById("error").style.display = "block";
+
+  }
 
 }
+
+document.getElementById("password").addEventListener("keypress", function(event) {
+
+  if (event.key === "Enter") {
+    unlock();
+  }
+
+});
 
 </script>
 
