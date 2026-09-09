@@ -4,291 +4,1191 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Surprise ♡</title>
+<title>Our Little Universe ♡</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: linear-gradient(135deg, #ffdce9, #dcecff);
-  color: #4d4650;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    sans-serif;
+
+  color: #514b57;
+
+  background:
+    radial-gradient(circle at 10% 10%, #ffffff 0 4%, transparent 20%),
+    linear-gradient(135deg, #ffe4ef, #e1efff);
+
+  overflow-x: hidden;
 }
+
+/* =========================
+   FLOATING HEARTS & STARS
+========================= */
+
+.floating {
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  animation: floatUp linear infinite;
+  opacity: 0.65;
+}
+
+.heart-float {
+  color: #f29bbb;
+}
+
+.star-float {
+  color: #8eb9e8;
+}
+
+@keyframes floatUp {
+
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  85% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+
+}
+
+/* =========================
+   PAGE
+========================= */
 
 .page {
   display: none;
+
   min-height: 100vh;
-  padding: 30px 20px;
+
+  padding:
+    30px
+    20px
+    50px;
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  position: relative;
 }
 
 .page.active {
   display: flex;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
   margin-top: 0;
 }
 
-/* PASSWORD */
+/* =========================
+   PASSWORD PAGE
+========================= */
 
-.login-box {
-  width: 100%;
-  max-width: 380px;
-  text-align: center;
-  background: rgba(255,255,255,0.85);
-  padding: 35px 25px;
-  border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(100,80,120,0.15);
+.login-page {
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff 0 5%, transparent 25%),
+    radial-gradient(circle at 90% 80%, #d9ecff 0 5%, transparent 30%),
+    linear-gradient(135deg, #ffd9e8, #dcecff);
 }
 
-.heart {
-  font-size: 55px;
-  margin-bottom: 10px;
+.login-box {
+
+  width: 100%;
+  max-width: 390px;
+
+  padding: 42px 27px 35px;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.88);
+
+  border:
+    2px solid rgba(255,255,255,0.9);
+
+  border-radius: 35px;
+
+  box-shadow:
+    0 25px 70px rgba(119, 100, 130, 0.18);
+
+  backdrop-filter: blur(15px);
+
+  animation:
+    boxAppear 0.8s ease;
+}
+
+@keyframes boxAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+.mail-icon {
+
+  width: 82px;
+  height: 82px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 43px;
+
+  background:
+    linear-gradient(135deg, #ffd0e1, #d5eaff);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 12px 30px rgba(220,130,170,0.18);
+
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+
 }
 
 .login-box h1 {
-  font-size: 30px;
-  color: #e982a9;
-}
 
-.login-box p {
-  color: #777;
-}
+  font-size: 28px;
+  margin-bottom: 9px;
 
-input {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid #f1bfd2;
-  border-radius: 15px;
-  font-size: 18px;
-  text-align: center;
-  outline: none;
-  margin: 15px 0;
-}
-
-button {
-  border: none;
-  border-radius: 20px;
-  padding: 14px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  background: #f39abb;
-  color: white;
-  font-weight: 600;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-/* HOME */
-
-.home-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.home-title h1 {
-  font-size: 32px;
   color: #df789f;
 }
 
+.login-box p {
+  color: #8a8490;
+  line-height: 1.6;
+}
+
+.password-label {
+
+  display: block;
+
+  margin-top: 22px;
+
+  font-size: 13px;
+
+  color: #aaa2ad;
+}
+
+input {
+
+  width: 100%;
+
+  padding: 16px;
+
+  margin:
+    8px
+    0
+    14px;
+
+  border:
+    2px solid #f4c4d7;
+
+  border-radius: 18px;
+
+  font-size: 20px;
+
+  text-align: center;
+
+  letter-spacing: 8px;
+
+  outline: none;
+
+  background: #fff;
+
+  color: #555;
+}
+
+input:focus {
+
+  border-color: #e995b5;
+
+  box-shadow:
+    0 0 0 4px rgba(233,149,181,0.12);
+}
+
+.main-button {
+
+  width: 100%;
+
+  padding: 16px 25px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: white;
+
+  background:
+    linear-gradient(135deg, #f29abb, #8fbcec);
+
+  box-shadow:
+    0 10px 25px rgba(150,140,190,0.2);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.main-button:active {
+  transform: scale(0.96);
+}
+
+#error {
+
+  color: #e982a9;
+
+  display: none;
+
+  margin-top: 15px;
+
+  font-size: 14px;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.home-page {
+
+  background:
+    radial-gradient(circle at 10% 10%, #fff 0 5%, transparent 22%),
+    linear-gradient(135deg, #ffe5ef, #e3f0ff);
+}
+
+.home-title {
+
+  text-align: center;
+
+  max-width: 500px;
+
+  margin-bottom: 35px;
+}
+
+.ribbon {
+
+  font-size: 58px;
+
+  animation:
+    heartbeat 2s ease-in-out infinite;
+}
+
+.home-title h1 {
+
+  margin:
+    10px
+    0;
+
+  font-size: 31px;
+
+  color: #df789f;
+}
+
+.home-title p {
+
+  color: #88818c;
+
+  font-size: 15px;
+}
+
 .cards {
+
   width: 100%;
   max-width: 500px;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 20px;
 }
 
 .card {
-  background: rgba(255,255,255,0.9);
-  padding: 35px 25px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px 25px;
+
   border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.88);
+
+  border:
+    2px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 15px 40px rgba(100,80,120,0.13);
+
   text-align: center;
-  box-shadow: 0 10px 30px rgba(100,80,120,0.12);
+
   cursor: pointer;
-  transition: 0.2s;
+
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: #ffe0eb;
+
+  top: -50px;
+  right: -40px;
+
+  opacity: 0.55;
 }
 
 .card:active {
-  transform: scale(0.97);
+
+  transform: scale(0.96);
+
 }
 
 .card .emoji {
-  font-size: 50px;
+
+  position: relative;
+
+  font-size: 52px;
+
+  margin-bottom: 8px;
 }
 
 .card h2 {
-  margin: 10px 0 5px;
+
+  position: relative;
+
+  margin:
+    5px
+    0;
+
   color: #df789f;
+
+  font-size: 23px;
 }
 
 .card p {
-  color: #888;
+
+  position: relative;
+
+  margin-bottom: 0;
+
+  color: #8d8790;
+
 }
 
-/* BIRTHDAY */
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-page {
+
+  background:
+    radial-gradient(circle at 80% 10%, #ffffff 0 4%, transparent 25%),
+    linear-gradient(135deg, #ffe0eb, #e2efff);
+}
 
 .letter {
+
   width: 100%;
-  max-width: 500px;
-  background: #fffafc;
+  max-width: 510px;
+
+  background: #fffdfd;
+
+  padding: 14px 14px 28px;
+
   border-radius: 25px;
-  padding: 25px;
-  box-shadow: 0 12px 35px rgba(100,80,120,0.15);
+
+  box-shadow:
+    0 20px 50px rgba(100,80,120,0.15);
+
+  transform:
+    rotate(-1deg);
+
+  animation:
+    paperIn 0.7s ease;
+}
+
+@keyframes paperIn {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(25px)
+      rotate(-4deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+}
+
+.letter-photo {
+
+  width: 100%;
+
+  max-height: 520px;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  display: block;
+}
+
+.tape {
+
+  width: 85px;
+  height: 25px;
+
+  position: absolute;
+
+  top: 18px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(-3deg);
+
+  background:
+    rgba(255,224,170,0.72);
+
+  z-index: 2;
+}
+
+.letter-text {
+
+  padding:
+    20px
+    10px
+    0;
+
   text-align: center;
 }
 
-.letter img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 18px;
-  margin-bottom: 20px;
+.letter-text h2 {
+
+  color: #df789f;
+
+  line-height: 1.6;
+
+  font-size: 22px;
 }
 
-.letter h2 {
-  color: #df789f;
-  line-height: 1.5;
+/* =========================
+   WISH
+========================= */
+
+.wish-page {
+
+  background:
+    linear-gradient(135deg, #ffe6f0, #e2f0ff);
 }
 
 .wish {
+
   width: 100%;
-  max-width: 500px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 25px;
-  padding: 30px 25px;
-  line-height: 2;
+  max-width: 510px;
+
+  padding: 35px 27px;
+
+  background:
+    rgba(255,255,255,0.9);
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 20px 50px rgba(100,80,120,0.13);
+
+  position: relative;
+}
+
+.wish::before {
+
+  content: "♡";
+
+  position: absolute;
+
+  top: -18px;
+  right: 25px;
+
+  font-size: 55px;
+
+  color: #f2aac4;
+
+  transform: rotate(15deg);
+}
+
+.wish h2 {
+
+  color: #df789f;
+
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+.wish p {
+
   font-size: 17px;
-  box-shadow: 0 10px 30px rgba(100,80,120,0.12);
+
+  line-height: 2.05;
+
+  color: #625c65;
+
+  text-align: left;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-page {
+
+  background:
+    radial-gradient(circle at 50% 30%, #fff 0 5%, transparent 25%),
+    linear-gradient(135deg, #ffe1ec, #dcecff);
 }
 
 .cake {
+
   text-align: center;
+
+  max-width: 450px;
 }
 
 .cake .big {
-  font-size: 100px;
+
+  font-size: 105px;
+
+  animation:
+    cakeBounce 2s ease-in-out infinite;
+}
+
+@keyframes cakeBounce {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
 }
 
 .cake h1 {
+
   color: #df789f;
+
+  font-size: 29px;
+
+  line-height: 1.5;
 }
 
-/* GALLERY */
+.cake p {
 
-.museum {
-  width: 100%;
-  min-height: 100vh;
-  padding: 25px 0 40px;
-}
-
-.museum-title {
-  text-align: center;
-  padding: 10px 20px 25px;
-}
-
-.museum-title h1 {
-  color: #df789f;
-}
-
-.museum-title p {
   color: #777;
+
+  line-height: 1.7;
 }
 
-.gallery {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 10px 20px 30px;
-  scroll-snap-type: x mandatory;
-}
+/* =========================
+   SCRAPBOOK MUSEUM
+========================= */
 
-.gallery::-webkit-scrollbar {
+.museum-page {
+
   display: none;
+
+  min-height: 100vh;
+
+  padding:
+    25px
+    0
+    60px;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(255,255,255,0.95) 0 3%,
+      transparent 18%
+    ),
+
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(210,232,255,0.5) 0 4%,
+      transparent 20%
+    ),
+
+    #f9f4f6;
 }
+
+.museum-page.active {
+  display: block;
+}
+
+.museum-header {
+
+  text-align: center;
+
+  padding:
+    15px
+    20px
+    35px;
+}
+
+.museum-icon {
+
+  font-size: 52px;
+
+  animation:
+    heartbeat 2s infinite;
+}
+
+.museum-header h1 {
+
+  margin:
+    8px
+    0;
+
+  color: #df789f;
+
+  font-size: 30px;
+}
+
+.museum-header p {
+
+  color: #888;
+
+  line-height: 1.6;
+}
+
+.museum-subtitle {
+
+  display: inline-block;
+
+  padding:
+    8px
+    16px;
+
+  margin-top: 8px;
+
+  border-radius: 30px;
+
+  background: white;
+
+  color: #8daed7;
+
+  font-size: 13px;
+
+  box-shadow:
+    0 5px 15px rgba(100,80,120,0.08);
+}
+
+/* museum line */
+
+.timeline {
+
+  position: relative;
+
+  width: 100%;
+  max-width: 700px;
+
+  margin: auto;
+
+  padding:
+    10px
+    18px
+    30px;
+}
+
+.timeline::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f3a7c2,
+      #9fc4ea
+    );
+
+  transform: translateX(-50%);
+
+  opacity: 0.55;
+}
+
+/* photo card */
 
 .photo-card {
-  flex: 0 0 82vw;
-  max-width: 380px;
+
+  width: calc(50% - 28px);
+
+  margin-bottom: 50px;
+
+  position: relative;
+
   background: #fff;
-  padding: 12px 12px 20px;
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(80,70,90,0.15);
-  scroll-snap-align: center;
-  transform: rotate(-1deg);
+
+  padding:
+    10px
+    10px
+    16px;
+
+  box-shadow:
+    0 12px 30px rgba(80,70,90,0.14);
+
+  transition:
+    transform 0.25s;
+
+  z-index: 2;
+}
+
+.photo-card:nth-child(odd) {
+
+  margin-right: auto;
+
+  transform:
+    rotate(-2deg);
 }
 
 .photo-card:nth-child(even) {
-  transform: rotate(1.2deg);
+
+  margin-left: auto;
+
+  transform:
+    rotate(2deg);
+}
+
+.photo-card:active {
+
+  transform:
+    rotate(0)
+    scale(0.98);
+}
+
+/* tape */
+
+.photo-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 65px;
+  height: 20px;
+
+  top: -10px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(-2deg);
+
+  background:
+    rgba(255,225,175,0.7);
+
+  z-index: 3;
+}
+
+/* timeline dot */
+
+.photo-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  top: 35px;
+
+  background: #f29abb;
+
+  border:
+    3px solid #fff;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 3px 10px rgba(200,100,140,0.25);
+}
+
+.photo-card:nth-child(odd)::after {
+
+  right: -35px;
+}
+
+.photo-card:nth-child(even)::after {
+
+  left: -35px;
 }
 
 .photo-card img {
+
   width: 100%;
+
   aspect-ratio: 4 / 5;
+
   object-fit: cover;
+
   display: block;
+
   background: #eee;
 }
 
 .caption {
-  padding: 15px 8px 3px;
+
+  padding:
+    14px
+    5px
+    3px;
+
   text-align: center;
-  font-size: 16px;
-  line-height: 1.6;
-  min-height: 55px;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  color: #625c65;
+
+  min-height: 58px;
+
+  outline: none;
 }
+
+.caption:focus {
+
+  background:
+    #fff8fb;
+
+  border-radius: 8px;
+}
+
+/* museum ending */
+
+.museum-end {
+
+  text-align: center;
+
+  padding:
+    10px
+    20px
+    20px;
+}
+
+.museum-end .heart {
+
+  font-size: 42px;
+
+  animation:
+    heartbeat 2s infinite;
+}
+
+.museum-end h2 {
+
+  color: #df789f;
+
+  font-size: 22px;
+}
+
+.museum-end p {
+
+  color: #888;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   BUTTONS
+========================= */
 
 .back {
-  margin-top: 15px;
-  background: #8eb9e8;
+
+  margin-top: 22px;
+
+  padding:
+    13px
+    23px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background:
+    #8eb9e8;
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(100,150,210,0.2);
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 28px;
+@media (max-width: 600px) {
+
+  .page {
+    padding:
+      25px
+      17px
+      45px;
+  }
+
+  .home-title h1 {
+    font-size: 27px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .letter-text h2 {
+    font-size: 20px;
+  }
+
+  .wish p {
+    font-size: 16px;
+  }
+
+  .museum-header h1 {
+    font-size: 27px;
+  }
+
+  .timeline {
+    padding:
+      10px
+      15px
+      20px;
+  }
+
+  .timeline::before {
+    left: 12px;
   }
 
   .photo-card {
-    flex-basis: 82vw;
+
+    width: calc(100% - 28px);
+
+    margin-left: 28px !important;
+    margin-right: 0 !important;
+
+    transform:
+      rotate(-1.5deg);
   }
+
+  .photo-card:nth-child(even) {
+    transform:
+      rotate(1.5deg);
+  }
+
+  .photo-card::after {
+
+    left: -34px !important;
+    right: auto !important;
+  }
+
 }
+
+/* little sparkle animation */
+
+.sparkle {
+
+  position: fixed;
+
+  pointer-events: none;
+
+  z-index: 100;
+
+  animation:
+    sparkle 1.8s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+  0%,100% {
+    opacity: 0.2;
+    transform: scale(0.7) rotate(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(20deg);
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- PASSWORD -->
 
-<section id="login" class="page active">
+<!-- FLOATING DECORATIONS -->
+
+<div class="floating heart-float"
+style="left:8%;font-size:20px;animation-duration:9s;">
+♡
+</div>
+
+<div class="floating heart-float"
+style="left:25%;font-size:15px;animation-duration:12s;animation-delay:2s;">
+♥
+</div>
+
+<div class="floating star-float"
+style="left:45%;font-size:18px;animation-duration:10s;animation-delay:1s;">
+✦
+</div>
+
+<div class="floating heart-float"
+style="left:68%;font-size:22px;animation-duration:13s;animation-delay:4s;">
+♡
+</div>
+
+<div class="floating star-float"
+style="left:85%;font-size:15px;animation-duration:11s;animation-delay:3s;">
+✧
+</div>
+
+
+<div class="sparkle"
+style="top:12%;left:12%;font-size:18px;">
+✦
+</div>
+
+<div class="sparkle"
+style="top:25%;right:12%;font-size:14px;animation-delay:.8s;">
+✧
+</div>
+
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
+<section id="login" class="page active login-page">
 
   <div class="login-box">
 
-    <div class="heart">💌</div>
+    <div class="mail-icon">
+      💌
+    </div>
 
-    <h1>มีอะไรให้เธอเปิด ♡</h1>
+    <h1>
+      มีอะไรให้เธอเปิด ♡
+    </h1>
 
-    <p>ใส่รหัสผ่านก่อนนะ</p>
+    <p>
+      จดหมายฉบับนี้เป็นของคนพิเศษเท่านั้น
+    </p>
+
+    <label class="password-label">
+      PASSWORD
+    </label>
 
     <input
       id="password"
       type="password"
       inputmode="numeric"
-      placeholder="ใส่รหัสผ่าน"
+      maxlength="4"
+      placeholder="••••"
     >
 
-    <button onclick="unlock()">เปิดประตู ♡</button>
+    <button
+      class="main-button"
+      onclick="unlock()">
+      เปิดจดหมาย ♡
+    </button>
 
-    <p id="error" style="color:#e982a9; display:none;">
+    <p id="error">
       รหัสไม่ถูกต้องนะ 🥺
     </p>
 
@@ -297,40 +1197,65 @@ button:hover {
 </section>
 
 
-<!-- HOME -->
+<!-- =========================
+     HOME
+========================= -->
 
-<section id="home" class="page">
+<section id="home" class="page home-page">
 
   <div class="home-title">
 
-    <div style="font-size:55px;">🎀</div>
+    <div class="ribbon">
+      🎀
+    </div>
 
-    <h1>สำหรับคนพิเศษของเค้า</h1>
+    <h1>
+      สำหรับคนพิเศษของเค้า
+    </h1>
 
-    <p>เลือกเปิดทีละอันนะ ♡</p>
+    <p>
+      welcome to our little universe ♡
+    </p>
 
   </div>
 
+
   <div class="cards">
 
-    <div class="card" onclick="go('birthday')">
+    <div
+      class="card"
+      onclick="go('birthday')">
 
-      <div class="emoji">🎂</div>
+      <div class="emoji">
+        🎂
+      </div>
 
-      <h2>Happy Birthday</h2>
+      <h2>
+        Happy Birthday
+      </h2>
 
-      <p>24 ปีแล้วนะคนเก่ง</p>
+      <p>
+        24 ปีแล้วนะคนเก่ง
+      </p>
 
     </div>
 
 
-    <div class="card" onclick="go('anniv')">
+    <div
+      class="card"
+      onclick="go('anniv')">
 
-      <div class="emoji">💗</div>
+      <div class="emoji">
+        💗
+      </div>
 
-      <h2>Happy Anniversary</h2>
+      <h2>
+        Happy Anniversary
+      </h2>
 
-      <p>1 year with you</p>
+      <p>
+        1 year with you
+      </p>
 
     </div>
 
@@ -339,39 +1264,57 @@ button:hover {
 </section>
 
 
-<!-- BIRTHDAY PHOTO -->
+<!-- =========================
+     BIRTHDAY
+========================= -->
 
-<section id="birthday" class="page">
+<section id="birthday" class="page birthday-page">
 
   <div class="letter">
 
-    <img src="birthday.jpeg" alt="Birthday">
+    <div class="tape"></div>
 
-    <h2>
-      ยินดีต้อนรับอายุ 24 ปีนะคะ<br>
-      คนเก่งของเค้า ♡
-    </h2>
+    <img
+      class="letter-photo"
+      src="birthday.jpeg"
+      alt="Birthday">
 
-    <button onclick="go('wish')">
-      เปิดจดหมายต่อ 💌
-    </button>
+    <div class="letter-text">
+
+      <h2>
+        ยินดีต้อนรับอายุ 24 ปีนะคะ<br>
+        คนเก่งของเค้า ♡
+      </h2>
+
+      <button
+        class="main-button"
+        onclick="go('wish')">
+        เปิดจดหมายต่อ 💌
+      </button>
+
+    </div>
 
   </div>
 
-  <button class="back" onclick="go('home')">
+
+  <button
+    class="back"
+    onclick="go('home')">
     ← กลับ
   </button>
 
 </section>
 
 
-<!-- WISH -->
+<!-- =========================
+     WISH
+========================= -->
 
-<section id="wish" class="page">
+<section id="wish" class="page wish-page">
 
   <div class="wish">
 
-    <h2 style="text-align:center;color:#df789f;">
+    <h2>
       ถึงคนเก่งของเค้า 💗
     </h2>
 
@@ -383,10 +1326,14 @@ button:hover {
       เค้าอยู่เคียงข้างเติบโตไปพร้อมกันนะ
     </p>
 
-    <div style="text-align:center;">
-      <button onclick="go('cake')">
+    <div style="text-align:center;margin-top:25px;">
+
+      <button
+        class="main-button"
+        onclick="go('cake')">
         ต่อไป ♡
       </button>
+
     </div>
 
   </div>
@@ -394,19 +1341,29 @@ button:hover {
 </section>
 
 
-<!-- CAKE -->
+<!-- =========================
+     CAKE
+========================= -->
 
-<section id="cake" class="page">
+<section id="cake" class="page cake-page">
 
   <div class="cake">
 
-    <div class="big">🎂</div>
+    <div class="big">
+      🎂
+    </div>
 
-    <h1>ขอบคุณที่เกิดมานะ 🎂</h1>
+    <h1>
+      ขอบคุณที่เกิดมานะ 🎂
+    </h1>
 
-    <p>และขอบคุณที่เข้ามาเป็นความสุขของเค้านะ ♡</p>
+    <p>
+      และขอบคุณที่เข้ามาเป็นความสุขของเค้านะ ♡
+    </p>
 
-    <button onclick="go('home')">
+    <button
+      class="main-button"
+      onclick="go('home')">
       กลับไปหน้าหลัก
     </button>
 
@@ -415,207 +1372,539 @@ button:hover {
 </section>
 
 
-<!-- ANNIVERSARY -->
+<!-- =========================
+     ANNIVERSARY MUSEUM
+========================= -->
 
-<section id="anniv" class="page">
+<section id="anniv" class="museum-page">
 
-  <div class="museum">
+  <div class="museum-header">
 
-    <div class="museum-title">
-
-      <div style="font-size:50px;">💗</div>
-
-      <h1>Our Little Museum</h1>
-
-      <p>365 วันที่มีเธออยู่ด้วยกัน ♡</p>
-
-      <p style="font-size:13px;">
-        ← ปัดดูรูปของเราไปเรื่อยๆ →
-      </p>
-
+    <div class="museum-icon">
+      💗
     </div>
 
+    <h1>
+      Our Little Museum
+    </h1>
 
-    <div class="gallery">
+    <p>
+      365 วันที่มีเธออยู่ด้วยกัน ♡
+    </p>
 
-      <div class="photo-card">
-        <img src="01.jpeg">
-        <div class="caption" contenteditable="true">
-          กันยายน 01 — สุขสันต์วันเกิดเธอปีแรก & เธอขอเค้าเป็นแฟน ♡
-        </div>
-      </div>
+    <div class="museum-subtitle">
+      A little collection of us
+    </div>
 
-      <div class="photo-card">
-        <img src="02.jpeg">
-        <div class="caption" contenteditable="true">
-          กันยายน 02 — เธอพาเค้าไปเที่ยวคาเฟ่น้องหมา ♡
-        </div>
-      </div>
+  </div>
 
-      <div class="photo-card">
-        <img src="03.jpeg">
-        <div class="caption" contenteditable="true">
-          ตุลาคม 03 — ทุกๆครั้งที่เค้าไปหาตอนเช้าต้องทำงานเธอก็จะจับมือแบบนี้เดินมาส่ง ♡
-        </div>
-      </div>
 
-      <div class="photo-card">
-        <img src="04.jpeg">
-        <div class="caption" contenteditable="true">
-          ตุลาคม 04 — ไปกินข้าวและดูหนังด้วยกัน ♡
-        </div>
-      </div>
+  <div class="timeline">
 
-      <div class="photo-card">
-        <img src="05.jpeg">
-        <div class="caption" contenteditable="true">
-          พฤศจิกายน 05 — เธอพาเค้าไปเดท วาดรูปด้วยกัน ใช้เวลาร่วมกัน ♡
-        </div>
-      </div>
 
-      <div class="photo-card">
-        <img src="06.jpeg">
-        <div class="caption" contenteditable="true">
-          พฤศจิกายน 06 — ทุกๆครั้งที่เบ้บมาหาเค้าดีใจมากเลยนะ ♡
-        </div>
-      </div>
+    <!-- 01 -->
 
-      <div class="photo-card">
-        <img src="07.jpeg">
-        <div class="caption" contenteditable="true">
-          ธันวาคม 07 — คนเก่งของเค้ารับปริญญาแล้ว ภูมิใจจัง ♡
-        </div>
-      </div>
+    <div class="photo-card">
 
-      <div class="photo-card">
-        <img src="08.jpeg">
-        <div class="caption" contenteditable="true">
-          ธันวาคม 08 — กินซูชิโระ เดินเล่น xmas ♡
-        </div>
-      </div>
+      <img
+        src="01.jpeg"
+        alt="Memory 01">
 
-      <div class="photo-card">
-        <img src="09.jpeg">
-        <div class="caption" contenteditable="true">
-          มกราคม 09 — เธอชอบพาไปนั่งโนแต้ง กินเบียร์ชิวๆ  ♡
-        </div>
-      </div>
+      <div
+        class="caption"
+        contenteditable="true">
 
-      <div class="photo-card">
-        <img src="10.jpeg">
-        <div class="caption" contenteditable="true">
-          มกราคม 10 — นานๆเธอจะไปสยาม ภาพที่เห็นได้บ่อย เธอรอเค้าลองชุด ♡
-        </div>
-      </div>
+        กันยายน 01 — สุขสันต์วันเกิดเธอปีแรก
+        & เธอขอเค้าเป็นแฟน ♡
 
-      <div class="photo-card">
-        <img src="11.jpeg">
-        <div class="caption" contenteditable="true">
-          กุมภาพันธ์ 11 — ไปบ้านเธอที่ตากครั้งแรก ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="12.jpeg">
-        <div class="caption" contenteditable="true">
-          กุมภาพันธ์ 12 — วาเลนไทน์แรกของเรา ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="13.jpeg">
-        <div class="caption" contenteditable="true">
-          มีนาคม 13 — วิดวะกาเด้น เก4 มีมาย  ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="14.jpeg">
-        <div class="caption" contenteditable="true">
-          มีนาคม 14 — ขอบคุณนะที่พาไปวิ่ง ซัพพอร์ตเค้าตลอด ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="15.jpeg">
-        <div class="caption" contenteditable="true">
-          พฤษภาคม 15 — เธอพาไปเที่ยวคาเฟ่อีกแล้ว ตั้งใจถ่ายรูปให้เค้า ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="16.jpeg">
-        <div class="caption" contenteditable="true">
-          พฤษภาคม 16 — เล่นสงกรานต์ด้วยกัน สนุกมาก ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="17.jpeg">
-        <div class="caption" contenteditable="true">
-          มิถุนายน 17 — ทะเลแสงอรุณ เธอไปบ้านเค้าครั้งแรก ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="18.jpeg">
-        <div class="caption" contenteditable="true">
-          มิถุนายน 18 — เสื้อคู่ ม่อนชิชิ ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="19.jpeg">
-        <div class="caption" contenteditable="true">
-          กรกฎาคม 19 — เธอเซอไพร้วันเกิดเค้า ขอบคุณนะคะ ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="20.jpeg">
-        <div class="caption" contenteditable="true">
-          กรกฎาคม 20 — สวนสนุกครั้งแรกของเค้า ดีใจจังที่เธอพาไป ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="21.jpeg">
-        <div class="caption" contenteditable="true">
-          สิงหาคม 21 — เช็คอินเขาใหญ่ ตามใจเค้าที่สุด ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="22.jpeg">
-        <div class="caption" contenteditable="true">
-          สิงหาคม 22 — เธอพาไปคอนน้องเตนล์ ปะป๊ามือใหม่ ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="23.jpeg">
-        <div class="caption" contenteditable="true">
-          กันยายน 23 — เข้าวัดทำบุญ  ♡
-        </div>
-      </div>
-
-      <div class="photo-card">
-        <img src="24.jpeg">
-        <div class="caption" contenteditable="true">
-          กันยายน 24 — เค้าเฝ้าเธอทำงาน เตรียมสอบ ♡
-        </div>
       </div>
 
     </div>
 
 
-    <div style="text-align:center;">
+    <!-- 02 -->
 
-      <button class="back" onclick="go('home')">
-        ← กลับหน้าหลัก
-      </button>
+    <div class="photo-card">
+
+      <img
+        src="02.jpeg"
+        alt="Memory 02">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กันยายน 02 — เธอพาเค้าไปเที่ยว
+        คาเฟ่น้องหมา ♡
+
+      </div>
 
     </div>
+
+
+    <!-- 03 -->
+
+    <div class="photo-card">
+
+      <img
+        src="03.jpeg"
+        alt="Memory 03">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        ตุลาคม 03 — ทุกๆครั้งที่เค้าไปหา
+        ตอนเช้าต้องทำงาน เธอก็จะจับมือ
+        แบบนี้เดินมาส่ง ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 04 -->
+
+    <div class="photo-card">
+
+      <img
+        src="04.jpeg"
+        alt="Memory 04">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        ตุลาคม 04 — ไปกินข้าว
+        และดูหนังด้วยกัน ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 05 -->
+
+    <div class="photo-card">
+
+      <img
+        src="05.jpeg"
+        alt="Memory 05">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        พฤศจิกายน 05 — เธอพาเค้าไปเดท
+        วาดรูปด้วยกัน ใช้เวลาร่วมกัน ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 06 -->
+
+    <div class="photo-card">
+
+      <img
+        src="06.jpeg"
+        alt="Memory 06">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        พฤศจิกายน 06 — ทุกๆครั้งที่เบ้บ
+        มาหาเค้าดีใจมากเลยนะ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 07 -->
+
+    <div class="photo-card">
+
+      <img
+        src="07.jpeg"
+        alt="Memory 07">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        ธันวาคม 07 — คนเก่งของเค้ารับปริญญาแล้ว
+        ภูมิใจจัง ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 08 -->
+
+    <div class="photo-card">
+
+      <img
+        src="08.jpeg"
+        alt="Memory 08">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        ธันวาคม 08 — กินซูชิโระ
+        เดินเล่น xmas ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 09 -->
+
+    <div class="photo-card">
+
+      <img
+        src="09.jpeg"
+        alt="Memory 09">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มกราคม 09 — เธอชอบพาไปนั่งโนแต้ง
+        กินเบียร์ชิวๆ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="photo-card">
+
+      <img
+        src="10.jpeg"
+        alt="Memory 10">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มกราคม 10 — นานๆเธอจะไปสยาม
+        ภาพที่เห็นได้บ่อย เธอรอเค้าลองชุด ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="photo-card">
+
+      <img
+        src="11.jpeg"
+        alt="Memory 11">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กุมภาพันธ์ 11 — ไปบ้านเธอ
+        ที่ตากครั้งแรก ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="photo-card">
+
+      <img
+        src="12.jpeg"
+        alt="Memory 12">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กุมภาพันธ์ 12 — วาเลนไทน์แรก
+        ของเรา ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 13 -->
+
+    <div class="photo-card">
+
+      <img
+        src="13.jpeg"
+        alt="Memory 13">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มีนาคม 13 — วิดวะกาเด้น
+        เก4 มีมาย ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 14 -->
+
+    <div class="photo-card">
+
+      <img
+        src="14.jpeg"
+        alt="Memory 14">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มีนาคม 14 — ขอบคุณนะที่พาไปวิ่ง
+        ซัพพอร์ตเค้าตลอด ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 15 -->
+
+    <div class="photo-card">
+
+      <img
+        src="15.jpeg"
+        alt="Memory 15">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        พฤษภาคม 15 — เธอพาไปเที่ยวคาเฟ่อีกแล้ว
+        ตั้งใจถ่ายรูปให้เค้า ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 16 -->
+
+    <div class="photo-card">
+
+      <img
+        src="16.jpeg"
+        alt="Memory 16">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        พฤษภาคม 16 — เล่นสงกรานต์ด้วยกัน
+        สนุกมาก ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 17 -->
+
+    <div class="photo-card">
+
+      <img
+        src="17.jpeg"
+        alt="Memory 17">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มิถุนายน 17 — ทะเลแสงอรุณ
+        เธอไปบ้านเค้าครั้งแรก ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 18 -->
+
+    <div class="photo-card">
+
+      <img
+        src="18.jpeg"
+        alt="Memory 18">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        มิถุนายน 18 — เสื้อคู่
+        ม่อนชิชิ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 19 -->
+
+    <div class="photo-card">
+
+      <img
+        src="19.jpeg"
+        alt="Memory 19">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กรกฎาคม 19 — เธอเซอไพร้วันเกิดเค้า
+        ขอบคุณนะคะ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 20 -->
+
+    <div class="photo-card">
+
+      <img
+        src="20.jpeg"
+        alt="Memory 20">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กรกฎาคม 20 — สวนสนุกครั้งแรกของเค้า
+        ดีใจจังที่เธอพาไป ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 21 -->
+
+    <div class="photo-card">
+
+      <img
+        src="21.jpeg"
+        alt="Memory 21">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        สิงหาคม 21 — เช็คอินเขาใหญ่
+        ตามใจเค้าที่สุด ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 22 -->
+
+    <div class="photo-card">
+
+      <img
+        src="22.jpeg"
+        alt="Memory 22">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        สิงหาคม 22 — เธอพาไปคอนน้องเตนล์
+        ปะป๊ามือใหม่ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 23 -->
+
+    <div class="photo-card">
+
+      <img
+        src="23.jpeg"
+        alt="Memory 23">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กันยายน 23 — เข้าวัดทำบุญ ♡
+
+      </div>
+
+    </div>
+
+
+    <!-- 24 -->
+
+    <div class="photo-card">
+
+      <img
+        src="24.jpeg"
+        alt="Memory 24">
+
+      <div
+        class="caption"
+        contenteditable="true">
+
+        กันยายน 24 — เค้าเฝ้าเธอทำงาน
+        เตรียมสอบ ♡
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="museum-end">
+
+    <div class="heart">
+      💕
+    </div>
+
+    <h2>
+      To be continued...
+    </h2>
+
+    <p>
+      ยังมีความทรงจำอีกเยอะเลยนะ<br>
+      เดินไปด้วยกันอีกนานๆเลยนะ ♡
+    </p>
+
+    <button
+      class="back"
+      onclick="go('home')">
+      ← กลับหน้าหลัก
+    </button>
 
   </div>
 
@@ -624,41 +1913,83 @@ button:hover {
 
 <script>
 
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
 function go(pageId) {
 
-  document.querySelectorAll(".page").forEach(function(page) {
-    page.classList.remove("active");
+  document
+    .querySelectorAll(".page, .museum-page")
+    .forEach(function(page) {
+
+      page.classList.remove("active");
+
+    });
+
+  document
+    .getElementById(pageId)
+    .classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 
-  document.getElementById(pageId).classList.add("active");
-
-  window.scrollTo(0, 0);
 }
 
 
+/* =========================
+   PASSWORD
+========================= */
+
 function unlock() {
 
-  const password = document.getElementById("password").value;
+  const password =
+    document
+      .getElementById("password")
+      .value;
+
+  const error =
+    document
+      .getElementById("error");
 
   if (password === "1009") {
+
+    error.style.display = "none";
 
     go("home");
 
   } else {
 
-    document.getElementById("error").style.display = "block";
+    error.style.display = "block";
+
+    document
+      .getElementById("password")
+      .value = "";
 
   }
 
 }
 
-document.getElementById("password").addEventListener("keypress", function(event) {
 
-  if (event.key === "Enter") {
-    unlock();
-  }
+/* ENTER KEY */
 
-});
+document
+  .getElementById("password")
+  .addEventListener(
+    "keypress",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        unlock();
+
+      }
+
+    }
+  );
+
 
 </script>
 
